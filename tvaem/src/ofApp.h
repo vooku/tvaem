@@ -9,6 +9,8 @@
 
 class ofApp : public ofBaseApp, public ofxMidiListener {
 public:
+    typedef std::unordered_map<Effect::Type, Effect> Effects;
+
     static constexpr const char * NAME = "Triggered Video & FX Mixer";
 
     explicit ofApp(ofxArgs* args);
@@ -47,6 +49,7 @@ private:
     ShowDescription show_;
     std::unique_ptr<Scene> currentScene_;
     std::vector<std::unique_ptr<ofxMidiIn>> midiInputs_;
+    Effects effects_;
 
     ofShader shader_;
     ofTexture dst_;

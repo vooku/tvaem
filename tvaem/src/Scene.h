@@ -9,7 +9,6 @@ class Gui;
 class Scene {
 public:
     typedef std::array<std::unique_ptr<Layer>, MAX_LAYERS> Layers;
-    typedef std::unordered_map<Effect::Type, Effect> Effects;
 
     friend class Gui;
 
@@ -37,7 +36,6 @@ public:
 
     const auto& getName() const { return name_; }
     const auto& getLayers() const { return layers_; }
-    const auto& getEffects() const { return effects_; }
     bool isValid() const { return valid_; }
     midiNote getAlphaControl() const { return alphaControl_; }
     float getAlpha() const { return uniforms_.alpha; }
@@ -58,7 +56,6 @@ private:
 
     std::string name_;
     Layers layers_;
-    Effects effects_;
     bool valid_;
     midiNote alphaControl_ = DEFAULT_MASTER_ALPHA_CONTROL;
 

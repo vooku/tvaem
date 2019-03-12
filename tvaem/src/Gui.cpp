@@ -79,12 +79,12 @@ void Gui::reload(Scene* newScene)
         toggle->setChecked(false);
     }
 
-    auto& effects = currentScene_->getEffects();
-    for (int i = 0; i < static_cast<int>(Effect::Type::Count); ++i) {
-        auto type = static_cast<Effect::Type>(i);
-        effectButtons_[i]->setLabel(Effect::c_str(type));
-        effectMidiInputs_[i]->setText(std::to_string(effects.at(type).getNote()));
-    }
+    //auto& effects = currentScene_->getEffects();
+    //for (auto i = 0; i < static_cast<int>(Effect::Type::Count); ++i) {
+    //    auto type = static_cast<Effect::Type>(i);
+    //    effectButtons_[i]->setLabel(Effect::c_str(type));
+    //    effectMidiInputs_[i]->setText(std::to_string(effects.at(type).getNote()));
+    //}
 
     draw();
 }
@@ -206,9 +206,9 @@ void Gui::onEffectMidiInput(ofxDatGuiTextInputEvent e)
 {
     auto idx = std::stoi(e.target->getName());
     auto note = static_cast<midiNote>(std::stoi(e.text));
-    show_->scenes_[show_->currentIdx_].effects[idx].note = note;
-    if (currentScene_ && currentScene_->layers_[idx])
-        currentScene_->effects_[static_cast<Effect::Type>(idx)].setNote(note);
+    //show_->scenes_[show_->currentIdx_].effects[idx].note = note;
+    //if (currentScene_ && currentScene_->layers_[idx])
+    //    currentScene_->effects_[static_cast<Effect::Type>(idx)].setNote(note);
 }
 
 void Gui::onSceneNameInput(ofxDatGuiTextInputEvent e)
@@ -265,10 +265,10 @@ void Gui::onEffectMuteToggle(ofxDatGuiToggleEvent e)
     const auto mute = e.checked;
     const auto idx = std::stoi(e.target->getName());
     const auto type = static_cast<Effect::Type>(idx);
-    if (currentScene_)
-        currentScene_->effects_[type].setMute(mute);
-    if (mute)
-        effectPlayToggles_[idx]->setChecked(false);
+    //if (currentScene_)
+    //    currentScene_->effects_[type].setMute(mute);
+    //if (mute)
+    //    effectPlayToggles_[idx]->setChecked(false);
 }
 
 void Gui::addBlank(ofxDatGui * panel)
