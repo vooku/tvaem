@@ -268,6 +268,12 @@ bool ofApp::setupShow()
         return false;
     }
 
+    for (const auto& effect : show_.getEffects()) {
+        effects_[effect.type] = Effect(effect.note);
+    }
+
+    gui_.reloadEffects(effects_);
+
     return true;
 }
 
@@ -298,7 +304,7 @@ bool ofApp::reload(LoadDir dir)
 
     if (currentScene_->isValid()) {
         ofLog(OF_LOG_NOTICE, "Successfully loaded scene %s.", currentScene_->getName().c_str());
-        gui_.reload(currentScene_.get());
+        gui_.reloadScene(currentScene_.get());
     }
     else {
         // TODO display in gui

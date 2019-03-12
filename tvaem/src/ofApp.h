@@ -3,14 +3,13 @@
 #include "ofMain.h"
 #include "ofxMidi.h"
 #include "ofxArgs.h"
+#include "Show.h"
 #include "Scene.h"
 #include "meta.h"
 #include "Gui.h"
 
 class ofApp : public ofBaseApp, public ofxMidiListener {
 public:
-    typedef std::unordered_map<Effect::Type, Effect> Effects;
-
     static constexpr const char * NAME = "Triggered Video & FX Mixer";
 
     explicit ofApp(ofxArgs* args);

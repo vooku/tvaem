@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxDatGui.h"
+#include "Show.h"
 #include "Scene.h"
 #include <array>
 
@@ -14,7 +15,8 @@ public:
 
     void setup();
     void draw() const;
-    void reload(Scene* newScene);
+    void reloadScene(Scene* newScene);
+    void reloadEffects(const Effects& effects);
     void update();
     void setActive(int layerId, bool active);
     void setActive(Effect::Type type, bool active);

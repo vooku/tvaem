@@ -22,10 +22,6 @@ void Scene::reload(const SceneDescription & description)
             layers_[i]->setAlphaControl(description.layers[i].alphaControl);
         }
     }
-
-    //for (const auto& effect : description.effects) {
-    //    effects_[effect.type] = Effect(effect.note);
-    //}
 }
 
 void Scene::bindTextures()

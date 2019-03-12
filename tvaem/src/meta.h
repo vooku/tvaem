@@ -68,6 +68,7 @@ public:
     void appendScene(const std::string& name = "New scene");
 
     const SceneDescription& currentScene() const { return scenes_[currentIdx_]; }
+    const auto& getEffects() const { return effects_; }
     auto getSize() const { return scenes_.size(); }
     auto getSwitchNote() const { return switchNote_; }
     auto getMidiChannel() const { return midiChannel_; }

@@ -266,6 +266,9 @@
     <ClInclude Include="src\base.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="src\Show.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

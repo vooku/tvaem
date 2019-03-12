@@ -44,7 +44,7 @@ void Gui::draw() const
     //if (blendModePanel_) blendModePanel_->draw();
 }
 
-void Gui::reload(Scene* newScene)
+void Gui::reloadScene(Scene* newScene)
 {
     currentScene_ = newScene;
     sceneNameInput_->setText(currentScene_->getName());
@@ -79,14 +79,20 @@ void Gui::reload(Scene* newScene)
         toggle->setChecked(false);
     }
 
-    //auto& effects = currentScene_->getEffects();
-    //for (auto i = 0; i < static_cast<int>(Effect::Type::Count); ++i) {
-    //    auto type = static_cast<Effect::Type>(i);
-    //    effectButtons_[i]->setLabel(Effect::c_str(type));
-    //    effectMidiInputs_[i]->setText(std::to_string(effects.at(type).getNote()));
-    //}
-
     draw();
+}
+
+void Gui::reloadEffects(const Effects& effects)
+{
+    for (auto& toggle : effectPlayToggles_) {
+        toggle->setChecked(false);
+    }
+
+    for (auto i = 0; i < static_cast<int>(Effect::Type::Count); ++i) {
+        auto type = static_cast<Effect::Type>(i);
+        effectButtons_[i]->setLabel(Effect::c_str(type));
+        effectMidiInputs_[i]->setText(std::to_string(effects.at(type).getNote()));
+    }
 }
 
 void Gui::update()
